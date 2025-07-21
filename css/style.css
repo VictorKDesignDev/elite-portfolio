@@ -1,0 +1,10 @@
+:root {  
+  --gold-light: #F5D020;  
+  --gold-dark: #D4AF37;  
+  --bg: #111;  
+}  
+
+body {  
+  background: var(--bg);  
+  overflow-x: hidden; /* For smooth 3D scroll */  
+}  
