@@ -1,40 +1,75 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>Victor's Elite Portfolio</title>  
-  <!-- Premium Resources -->  
-  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">  
-  <link rel="stylesheet" href="./css/style.css">  
-</head>  
-<body class="loading"> <!-- For preloader -->  
-  <header class="gold-gradient-bg">  
-    <h1 data-splitting="chars">VICTOR K.</h1>  
-    <canvas id="gold-particles"></canvas>  
-  </header>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Victor Lee" />
+  <meta name="description" content="Victor Lee – Fullstack Developer & Prompt Engineer Portfolio" />
+  <title>Victor Lee | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Victor Lee</div>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="theme-toggle">
+  <button id="themeBtn">Toggle Theme</button>
+</div>
 
-  <!-- 3D Spline Model -->  
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.85/build/spline-viewer.js"></script>  
-  <spline-viewer url="./assets/spline/scene.splinecode"></spline-viewer>  
+    </nav>
+  </header>
 
-  <!-- GSAP + Three.js -->  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>  
-  <script type="module" src="./js/main.js"></script>  
-  <!-- Project Grid (Dynamic) -->  
-<section class="projects">  
-  <div class="project-card" data-tech="react threejs">  
-    <h3>3D Portfolio Builder</h3>  
-    <canvas class="project-preview"></canvas>  <!-- Three.js render -->  
-  </div>  
-</section>  
+  <section id="hero" class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Hi, I'm Victor Lee</h1>
+      <p class="hero-subtitle">I build bold, clean, functional websites.</p>
+    </div>
+  </section>
 
-<!-- GSAP Scroll Magic -->  
-<script>  
-  gsap.from(".project-card", {  
-    scrollTrigger: { trigger: ".projects" },  
-    y: 50, opacity: 0, stagger: 0.2  
-  });  
-</script>  
-</body>  
-</html>  
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I’m a visionary fullstack developer & prompt engineer passionate about stunning UI/UX and clean performance-driven code.</p>
+      <div class="timeline">
+        <div class="timeline-item">2023 – Front-End Foundations</div>
+        <div class="timeline-item">2024 – UX Design & JavaScript</div>
+        <div class="timeline-item">2025 – AI, Prompt Engineering & Systems Thinking</div>
+      </div>
+    </div>
+  </section>
+  <section id="projects" class="projects-section">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <h3>Modern Portfolio</h3>
+      <p>Clean animated portfolio built with HTML, CSS, GSAP, and Git.</p>
+      <a href="#" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <h3>Responsive Landing Page</h3>
+      <p>Marketing page with responsive layout and smooth transitions.</p>
+      <a href="#" target="_blank">View Project</a>
+    </div>
+  </div>
+</section>
+<section id="contact" class="contact-section">
+  <h2>Contact Me</h2>
+  <form name="contact" method="POST" data-netlify="true">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
