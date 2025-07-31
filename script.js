@@ -1,51 +1,69 @@
+// Enable ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
+// Fade-in hero content
 gsap.from(".hero-title", {
-  y: 50,
   opacity: 0,
-  duration: 1.2,
-  ease: "power3.out"
+  y: -50,
+  duration: 1,
+  delay: 0.5,
+  ease: "power2.out",
 });
 
 gsap.from(".hero-subtitle", {
+  opacity: 0,
   y: 30,
-  opacity: 0,
-  delay: 0.5,
-  duration: 1.2,
-  ease: "power3.out"
-});
-
-gsap.from(".about-section h2", {
-  scrollTrigger: ".about-section",
-  y: 40,
-  opacity: 0,
-  duration: 1.2,
-  ease: "power2.out"
-});
-
-gsap.from(".timeline-item", {
-  scrollTrigger: ".timeline",
-  y: 50,
-  opacity: 0,
-  stagger: 0.2,
-  duration: 1.2
-});
-gsap.from(".project-card", {
-  scrollTrigger: ".projects-grid",
-  y: 60,
-  opacity: 0,
-  stagger: 0.2,
-  duration: 1.2,
-  ease: "power2.out"
-});
-gsap.from("form input, form textarea, form button", {
-  scrollTrigger: ".contact-section",
-  y: 40,
-  opacity: 0,
-  stagger: 0.1,
   duration: 1,
-  ease: "power2.out"
+  delay: 1,
+  ease: "power2.out",
 });
-const themeBtn = document.getElementById('themeBtn');
 
-themeBtn.addEventListener('click', () => {
-  document.body.classList.toggle('light-mode');
+// Animate About Section on scroll
+gsap.from(".about-section .container", {
+  scrollTrigger: {
+    trigger: ".about-section",
+    start: "top 80%",
+  },
+  opacity: 0,
+  y: 50,
+  duration: 1,
+  ease: "power2.out",
+});
+
+// Animate Timeline Items one by one
+gsap.utils.toArray(".timeline-item").forEach((item, i) => {
+  gsap.from(item, {
+    scrollTrigger: {
+      trigger: item,
+      start: "top 90%",
+    },
+    opacity: 0,
+    x: i % 2 === 0 ? -100 : 100,
+    duration: 0.8,
+    ease: "power2.out",
+  });
+});
+
+// Animate Projects
+gsap.from(".projects-grid", {
+  scrollTrigger: {
+    trigger: ".projects-grid",
+    start: "top 80%",
+  },
+  opacity: 0,
+  scale: 0.95,
+  duration: 1,
+  ease: "power2.out",
+});
+
+// Contact Form bounce-in
+gsap.from("form", {
+  scrollTrigger: {
+    trigger: "form",
+    start: "top 85%",
+  },
+  opacity: 0,
+  y: 50,
+  duration: 1,
+  ease: "back.out(1.7)",
 });

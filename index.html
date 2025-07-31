@@ -3,31 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Victor Lee" />
-  <meta name="description" content="Victor Lee – Fullstack Developer & Prompt Engineer Portfolio" />
-  <title>Victor Lee | Portfolio</title>
+  <meta name="author" content="Victor Kamau" />
+  <meta name="description" content="Victor Kamau – Fullstack Developer & Prompt Engineer Portfolio" />
+  <title>Victor Kamau | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo">Victor Lee</div>
-      <ul class="nav-links">
+      <div class="logo">Victor Kamau</div>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button class="mobile-toggle" id="menuToggle">☰</button>
       <div class="theme-toggle">
-  <button id="themeBtn">Toggle Theme</button>
-</div>
-
+        <button id="themeBtn">Toggle Theme</button>
+      </div>
     </nav>
   </header>
 
   <section id="hero" class="hero-section">
     <div class="hero-content">
-      <h1 class="hero-title">Hi, I'm Victor Lee</h1>
+      <h1 class="hero-title">Hi, I'm Victor Kamau</h1>
       <p class="hero-subtitle">I build bold, clean, functional websites.</p>
     </div>
   </section>
@@ -43,33 +46,56 @@
       </div>
     </div>
   </section>
-  <section id="projects" class="projects-section">
-  <h2>Projects</h2>
-  <div class="projects-grid">
-    <div class="project-card">
-      <h3>Modern Portfolio</h3>
-      <p>Clean animated portfolio built with HTML, CSS, GSAP, and Git.</p>
-      <a href="#" target="_blank">View Project</a>
-    </div>
-    <div class="project-card">
-      <h3>Responsive Landing Page</h3>
-      <p>Marketing page with responsive layout and smooth transitions.</p>
-      <a href="#" target="_blank">View Project</a>
-    </div>
-  </div>
-</section>
-<section id="contact" class="contact-section">
-  <h2>Contact Me</h2>
-  <form name="contact" method="POST" data-netlify="true">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
 
+  <section id="projects" class="projects-section">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Modern Portfolio</h3>
+        <p>Clean animated portfolio built with HTML, CSS, GSAP, and Git.</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Responsive Landing Page</h3>
+        <p>Marketing page with responsive layout and smooth transitions.</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Contact Me</h2>
+    <form name="contact" method="POST" data-netlify="true">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script>
+    // GSAP Scroll Animations
+    gsap.from(".hero-title", { duration: 1, y: -50, opacity: 0 });
+    gsap.from(".hero-subtitle", { duration: 1.2, y: 50, opacity: 0, delay: 0.3 });
+    gsap.from(".about-section", {
+      scrollTrigger: ".about-section",
+      duration: 1,
+      opacity: 0,
+      y: 100,
+    });
+    gsap.from(".projects-section", {
+      scrollTrigger: ".projects-section",
+      duration: 1,
+      opacity: 0,
+      y: 100,
+    });
+
+    // Mobile nav toggle
+    document.getElementById("menuToggle").addEventListener("click", () => {
+      document.getElementById("navLinks").classList.toggle("show");
+    });
+  </script>
 </body>
 </html>
